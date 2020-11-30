@@ -1,3 +1,5 @@
+Creating a pokedex using the PokeAPI with ReactJS! This is an opportunity to learn more in depth about useEffect, the filter method and UI design.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
