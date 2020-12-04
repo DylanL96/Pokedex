@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import PokemonList from './components/PokemonList';
+// import PokemonList from './components/PokemonList';
 import SinglePokemon from './components/SinglePokemon';
 import PokemonFilter from './components/PokemonFilter';
 import NoPokemon from './components/NoPokemon';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const App = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -47,25 +48,29 @@ const App = () => {
       <div>
         <PokemonFilter value={search} handleChange={handleChange}/>
         <SinglePokemon pokemon={filteredPokemon[0]}/>
-        <PokemonList pokemon={filteredPokemon}/>
+        {/* <PokemonList pokemon={filteredPokemon}/> */}
       </div>
     )
   } else if (filteredPokemon.length === 0){
     return (
       <div>
         <PokemonFilter value={search} handleChange={handleChange}/>
-        <PokemonList pokemon={filteredPokemon}/>
+        {/* <PokemonList pokemon={filteredPokemon}/> */}
         <NoPokemon/>
       </div>
     )
   } else {
     return (
+      <React.Fragment>
       <div>
         <PokemonFilter value={search} handleChange={handleChange}/>
-        <PokemonList pokemon={filteredPokemon}/>
+        {/* <PokemonList pokemon={filteredPokemon}/> */}
+        <NoPokemon/>
       </div>
+      </React.Fragment>
     )
   }
-}
+};
+
 
 export default App;

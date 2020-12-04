@@ -1,11 +1,2 @@
-.test{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 50%;
-  border: 1px solid black;
-}
 
-.tester{
-  width: 50%;
-}
 
