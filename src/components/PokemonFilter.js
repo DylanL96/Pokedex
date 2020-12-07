@@ -11,10 +11,16 @@ const PokemonFilter = ({value, handleChange}) => {
 
 const StyledSearch = styled.input`
   position: absolute;
-  left: 25%;
-  width: 50%;
+  border: 4px solid black;
+  margin-top: 48px;
+  left: 20%;
+  width: 440px;
   height: 5%;
-  border-radius: 120px;
+  background-color: red;
+  color: white;
+  ::-webkit-input-placeholder { 
+  color: #fff;
+};
   text-align: center;
   :focus{
     outline: none;

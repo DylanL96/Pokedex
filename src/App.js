@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
-// import PokemonList from './components/PokemonList';
 import SinglePokemon from './components/SinglePokemon';
 import PokemonFilter from './components/PokemonFilter';
 import NoPokemon from './components/NoPokemon';
 import axios from 'axios';
-import styled from 'styled-components';
 
 const App = () => {
   const [pokemon, setPokemon] = useState([]);
-  const [currentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=150`);
+  const [currentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=250&offset=0`);
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true);
 
@@ -71,6 +69,7 @@ const App = () => {
     )
   }
 };
+
 
 
 export default App;
