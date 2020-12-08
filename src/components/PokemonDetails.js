@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import typeColors from '../helpers/typeColors';
 
 const PokemonDetails = ({pokeInfo}) => {
   // console.log({pokeInfo})
@@ -37,7 +38,7 @@ const PokemonDetails = ({pokeInfo}) => {
       <GreyBorder>
         <BlackBorder>
           <Screen>
-            <img src={details.sprites.front_default} width="400" height="300" alt="pokemon"/>
+            <img style={{backgroundColor: typeColors[details.types[0].type.name]}} src={details.sprites.front_default} width="400" height="300" alt="pokemon"/>
           </Screen>
         </BlackBorder>
       </GreyBorder>
