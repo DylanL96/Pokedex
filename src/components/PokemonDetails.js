@@ -31,92 +31,114 @@ const PokemonDetails = ({pokeInfo}) => {
 
   return(
     <React.Fragment>
-    <LeftSidePokedex>
-      <AButton>A</AButton>
-      <BButton>B</BButton>
-      <FontAwesomeIcon icon={faPlus} size="7x" className="plus-button"/>
-      <GreyBorder>
-        <BlackBorder>
-          <Screen>
-            <img style={{backgroundColor: typeColors[details.types[0].type.name]}} src={details.sprites.front_default} width="400" height="300" alt="pokemon"/>
-          </Screen>
-        </BlackBorder>
-      </GreyBorder>
-    </LeftSidePokedex>
-    <RightSidePokedex>
-      <NameLabel> {details.id}. {details.name.charAt(0).toUpperCase() + details.name.slice(1)}</NameLabel>
-      <PhysicalStats><SpanStats>Height: {details.height}ft Weight: {details.weight}lb</SpanStats></PhysicalStats>
-      <PokeStats>
-      <AbilitiesSpan>Abilities</AbilitiesSpan>
-        <PokeStatsAbilities>
-        {details.abilities[0].ability.name} {details.abilities[1].ability.name}
-        </PokeStatsAbilities>
-      <TypesSpan>Type</TypesSpan>
-        <PokeStatsTypes>
-          {details.types[0].type.name} 
-        </PokeStatsTypes>
-      <MovesSpan>Move</MovesSpan>
-        <PokeStatsMoves>
-          {details.moves[0].move.name}
-        </PokeStatsMoves>
-        </PokeStats>
-    </RightSidePokedex>
+      <Parent>
+      <LeftSidePokedex>
+        <Pad>
+          <FontAwesomeIcon icon={faPlus} size="7x" className="plus-button"/>
+        </Pad>
+        <ButtonStyle>
+          <AButton>A</AButton>
+          <BButton>B</BButton>
+        </ButtonStyle>
+        <GreyBorder>
+          <BlackBorder>
+            <Screen>
+              <img style={{backgroundColor: typeColors[details.types[0].type.name]}} src={details.sprites.front_default} width="350" height="310" alt="pokemon"/>
+            </Screen>
+          </BlackBorder>
+        </GreyBorder>
+      </LeftSidePokedex>
+        <RightSidePokedex>
+          <NameLabel> {details.id}. {details.name.charAt(0).toUpperCase() + details.name.slice(1)}</NameLabel>
+          <PhysicalStats><SpanStats>Height: {details.height}ft Weight: {details.weight}lb</SpanStats></PhysicalStats>
+          <PokeStats>
+          <AbilitiesSpan>Abilities</AbilitiesSpan>
+            <PokeStatsAbilities>
+            {details.abilities[0].ability.name} {details.abilities[1].ability.name}
+            </PokeStatsAbilities>
+          <TypesSpan>Type</TypesSpan>
+            <PokeStatsTypes>
+              {details.types[0].type.name} 
+            </PokeStatsTypes>
+          <MovesSpan>Move</MovesSpan>
+            <PokeStatsMoves>
+              {details.moves[0].move.name}
+            </PokeStatsMoves>
+            </PokeStats>
+        </RightSidePokedex>
+    </Parent>
     </React.Fragment>
   )
 };
 
 //Styled Components CSS
-const Screen = styled.div`
-  border: 1px solid black;
+const Parent = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: -5px;
+`;
+
+const Screen = styled.div`
+  border: 1px solid black;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 9px;
   height: 300px;
   width: 350px;
   border-radius: 20px;
-  position: absolute;
-  left: 50px;
-  bottom: 39%;
   background-color: white;
-`;
-
-const LeftSidePokedex = styled.div`
-  border: 5px solid black;
-  display: flex;
-  justify-content: center;
-  height: 650px;
-  width: 450px;
-  position: absolute;
-  left: 20%;
-  bottom: 10%;
-  background-color: rgba(257, 0, 0,1 );
 `;
 
 const BlackBorder = styled.div`
   background-color: black;
+  position: absolute;
   height: 345px;
   width: 370px;
-  margin-left: 15px;
+  margin-left: 13px;
   margin-top: 20px;
 `;
 
 const GreyBorder = styled.div`
   background-color: grey;
-  border: 5px solid black;
   height: 380px;
   width: 400px;
+  margin-left: -170px;
   margin-top: 50px;
+`;
+
+
+const LeftSidePokedex = styled.div`
+  border: 5px solid black; 
+  width: 450px;
+  height: 650px;
+  display: flex;
+  background-color: rgba(257, 0, 0, 1);
+`;
+
+const Pad = styled.div`
+  height: 110px;
+  position: relative;
+  top: 75%;
+  left: 15%;
+`;
+
+const ButtonStyle = styled.div`
+  /* border: 1px solid black; */
+  height: 100px;
+  width: 100px;
+  margin-top: 105%;
+  position: relative;
+  left: 40%;
 `;
 
 const AButton = styled.button`
   background-color: black;
   color: white;
   border-radius: 40px;
-  padding: 10px;
-  position: absolute;
-  font-size: 20px;
   width: 50px;
-  left: 70%;
-  top: 80%;
+  height: 50px;
   :focus{
     outline: none;
   }
@@ -125,14 +147,10 @@ const AButton = styled.button`
 const BButton = styled.button`
   background-color: black;
   color: white;
-  font-size: 20px;
   border-radius: 40px;
-  padding: 10px;
-  position: absolute;
-  font-size: 20px;
   width: 50px;
-  left: 50%;
-  top: 80%;
+  height: 50px;
+  margin-left: 70px;
   :focus{
     outline: none;
   }
@@ -140,15 +158,11 @@ const BButton = styled.button`
 
 const RightSidePokedex = styled.div`
   border: 5px solid black;
-  display: flex;
-  justify-content: center;
-  height: 650px;
   width: 450px;
-  position: absolute;
-  left: 48%;
-  bottom: 10%;
-  background-color: rgba(257, 0, 0,1 );
+  height: 650px;
+  display: flex;
   flex-wrap: wrap;
+  background-color: rgba(257, 0, 0, 1);
 `;
 
 const NameLabel = styled.div`
@@ -160,8 +174,8 @@ const NameLabel = styled.div`
   background-color: black;
   color: white;
   border-radius: 40px;
-  margin-top: 20px;
   font-size: 25px;
+  margin-left: 20px;
 `;
 
 const PhysicalStats = styled.div`
@@ -172,6 +186,7 @@ const PhysicalStats = styled.div`
   background-color: black;
   color: white;
   border-radius: 40px;
+  margin-left: 20px;
 `;
 
 const SpanStats = styled.div`
@@ -188,6 +203,7 @@ const PokeStats = styled.div`
   background-color: black;
   color: white;
   font-size: 30px;
+  margin-left: 20px;
 `;
 
 const PokeStatsAbilities = styled.div`
@@ -198,7 +214,7 @@ const PokeStatsAbilities = styled.div`
 const AbilitiesSpan = styled.span`
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px;
 `;
 
 const TypesSpan = styled.div`
@@ -210,6 +226,7 @@ const TypesSpan = styled.div`
 const PokeStatsTypes = styled.span`
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 `;
 
 const MovesSpan = styled.div`

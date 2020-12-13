@@ -10,17 +10,15 @@ const PokemonFilter = ({value, handleChange}) => {
 };
 
 const StyledSearch = styled.input`
-  position: absolute;
   border: 4px solid black;
-  margin-top: 48px;
-  left: 20%;
-  width: 440px;
-  height: 5%;
-  background-color: red;
-  color: white;
-  ::-webkit-input-placeholder { 
-  color: #fff;
-};
+  display: flex;
+  background-color: rgba(257, 0, 0, 1);
+  margin: 0 auto;
+  height: 50px;
+  width: 909px;
+  ::-webkit-input-placeholder{
+    color: #fff;
+  };
   text-align: center;
   :focus{
     outline: none;
